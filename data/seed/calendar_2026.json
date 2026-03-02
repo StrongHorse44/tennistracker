@@ -1,0 +1,22 @@
+[
+  {"tournament_slug": "brisbane", "year": 2026, "start_date": "2026-01-05", "end_date": "2026-01-11", "status": "completed"},
+  {"tournament_slug": "australian-open", "year": 2026, "start_date": "2026-01-19", "end_date": "2026-02-01", "status": "completed"},
+  {"tournament_slug": "qatar-open", "year": 2026, "start_date": "2026-02-16", "end_date": "2026-02-21", "status": "in_progress"},
+  {"tournament_slug": "dubai", "year": 2026, "start_date": "2026-02-23", "end_date": "2026-03-01", "status": "entry_list"},
+  {"tournament_slug": "indian-wells", "year": 2026, "start_date": "2026-03-09", "end_date": "2026-03-22", "status": "entry_list"},
+  {"tournament_slug": "miami-open", "year": 2026, "start_date": "2026-03-24", "end_date": "2026-04-05", "status": "upcoming"},
+  {"tournament_slug": "monte-carlo", "year": 2026, "start_date": "2026-04-06", "end_date": "2026-04-13", "status": "upcoming"},
+  {"tournament_slug": "barcelona", "year": 2026, "start_date": "2026-04-14", "end_date": "2026-04-20", "status": "upcoming"},
+  {"tournament_slug": "madrid-open", "year": 2026, "start_date": "2026-04-27", "end_date": "2026-05-10", "status": "upcoming"},
+  {"tournament_slug": "italian-open", "year": 2026, "start_date": "2026-05-11", "end_date": "2026-05-18", "status": "upcoming"},
+  {"tournament_slug": "roland-garros", "year": 2026, "start_date": "2026-05-25", "end_date": "2026-06-08", "status": "upcoming"},
+  {"tournament_slug": "queens-club", "year": 2026, "start_date": "2026-06-15", "end_date": "2026-06-21", "status": "upcoming"},
+  {"tournament_slug": "halle", "year": 2026, "start_date": "2026-06-15", "end_date": "2026-06-21", "status": "upcoming"},
+  {"tournament_slug": "wimbledon", "year": 2026, "start_date": "2026-06-29", "end_date": "2026-07-12", "status": "upcoming"},
+  {"tournament_slug": "canadian-open", "year": 2026, "start_date": "2026-08-03", "end_date": "2026-08-09", "status": "upcoming"},
+  {"tournament_slug": "cincinnati", "year": 2026, "start_date": "2026-08-10", "end_date": "2026-08-16", "status": "upcoming"},
+  {"tournament_slug": "us-open", "year": 2026, "start_date": "2026-08-31", "end_date": "2026-09-13", "status": "upcoming"},
+  {"tournament_slug": "shanghai", "year": 2026, "start_date": "2026-10-05", "end_date": "2026-10-18", "status": "upcoming"},
+  {"tournament_slug": "paris-masters", "year": 2026, "start_date": "2026-10-26", "end_date": "2026-11-02", "status": "upcoming"},
+  {"tournament_slug": "atp-finals", "year": 2026, "start_date": "2026-11-09", "end_date": "2026-11-16", "status": "upcoming"}
+]
