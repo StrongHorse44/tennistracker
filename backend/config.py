@@ -45,9 +45,19 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-    """Production configuration."""
+    """Production configuration (PythonAnywhere)."""
 
     DEBUG = False
+
+    # In production, SECRET_KEY must be set via environment variable
+    SECRET_KEY = os.environ.get("SECRET_KEY", "change-me-in-production")
+
+    # PythonAnywhere uses SQLite by default; override with DATABASE_URL env var
+    # Default path: ~/tennistracker/courttracker.db
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL",
+        f"sqlite:///{basedir / 'courttracker.db'}",
+    )
 
 
 config_by_name = {
