@@ -10,9 +10,9 @@
 #   3. Set up .env file (copy from .env.pythonanywhere and fill in values)
 #
 # PythonAnywhere Web Tab Settings:
-#   - Source code:    /home/tennisskipperslipper/tennistracker
-#   - Working dir:    /home/tennisskipperslipper/tennistracker
-#   - Virtualenv:     /home/tennisskipperslipper/.virtualenvs/courttracker
+#   - Source code:    /home/skipperslipper/tennistracker
+#   - Working dir:    /home/skipperslipper/tennistracker
+#   - Virtualenv:     /home/skipperslipper/.virtualenvs/courttracker
 #   - WSGI config:    Edit to import from wsgi.py (see pythonanywhere_wsgi.py)
 
 set -e

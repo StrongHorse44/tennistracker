@@ -2,9 +2,9 @@
 
 Copy this ENTIRE file's contents into the WSGI configuration file
 on PythonAnywhere's Web tab. The WSGI config file is typically at:
-  /var/www/tennisskipperslipper_pythonanywhere_com_wsgi.py
+  /var/www/skipperslipper_pythonanywhere_com_wsgi.py
 
-Replace 'tennisskipperslipper' with your actual PythonAnywhere username
+Replace 'skipperslipper' with your actual PythonAnywhere username
 if different.
 """
 
@@ -12,7 +12,7 @@ import os
 import sys
 
 # === EDIT THIS: your PythonAnywhere username ===
-PA_USERNAME = "tennisskipperslipper"
+PA_USERNAME = "skipperslipper"
 
 # Project paths
 project_home = f"/home/{PA_USERNAME}/tennistracker"
