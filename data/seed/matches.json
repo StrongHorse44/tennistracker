@@ -1,0 +1,30 @@
+[
+  {
+    "_comment": "=== QATAR OPEN 2026 matches — tournament in progress ===",
+    "tournament_slug": "qatar-open",
+    "year": 2026,
+    "matches": [
+      {"player1_slug": "novak-djokovic", "player2_slug": "lorenzo-musetti", "winner_slug": "novak-djokovic", "round": "R16", "score": "6-3 6-4", "status": "completed", "scheduled_date": "2026-02-18", "duration_minutes": 78},
+      {"player1_slug": "novak-djokovic", "player2_slug": "grigor-dimitrov", "winner_slug": "novak-djokovic", "round": "QF", "score": "6-4 7-6(3)", "status": "completed", "scheduled_date": "2026-02-19", "duration_minutes": 105},
+      {"player1_slug": "andrey-rublev", "player2_slug": "ugo-humbert", "winner_slug": "andrey-rublev", "round": "R16", "score": "7-5 6-3", "status": "completed", "scheduled_date": "2026-02-18", "duration_minutes": 82},
+      {"player1_slug": "andrey-rublev", "player2_slug": "frances-tiafoe", "winner_slug": "andrey-rublev", "round": "QF", "score": "6-7(5) 6-4 6-2", "status": "completed", "scheduled_date": "2026-02-19", "duration_minutes": 145},
+      {"player1_slug": "holger-rune", "player2_slug": "hubert-hurkacz", "winner_slug": null, "round": "QF", "score": null, "status": "scheduled", "scheduled_date": "2026-02-20", "duration_minutes": null},
+      {"player1_slug": "novak-djokovic", "player2_slug": "andrey-rublev", "winner_slug": null, "round": "SF", "score": null, "status": "scheduled", "scheduled_date": "2026-02-20", "duration_minutes": null}
+    ]
+  },
+  {
+    "_comment": "=== AUSTRALIAN OPEN 2026 completed matches ===",
+    "tournament_slug": "australian-open",
+    "year": 2026,
+    "matches": [
+      {"player1_slug": "jannik-sinner", "player2_slug": "alexander-zverev", "winner_slug": "jannik-sinner", "round": "F", "score": "6-3 7-6(4) 6-3", "status": "completed", "scheduled_date": "2026-01-26", "duration_minutes": 162},
+      {"player1_slug": "jannik-sinner", "player2_slug": "novak-djokovic", "winner_slug": "jannik-sinner", "round": "SF", "score": "7-6(2) 6-2 6-3", "status": "completed", "scheduled_date": "2026-01-24", "duration_minutes": 148},
+      {"player1_slug": "alexander-zverev", "player2_slug": "taylor-fritz", "winner_slug": "alexander-zverev", "round": "SF", "score": "6-4 3-6 6-4 6-3", "status": "completed", "scheduled_date": "2026-01-24", "duration_minutes": 185},
+      {"player1_slug": "jannik-sinner", "player2_slug": "daniil-medvedev", "winner_slug": "jannik-sinner", "round": "QF", "score": "6-2 6-4 6-1", "status": "completed", "scheduled_date": "2026-01-22", "duration_minutes": 108},
+      {"player1_slug": "carlos-alcaraz", "player2_slug": "novak-djokovic", "winner_slug": "novak-djokovic", "round": "QF", "score": "4-6 6-4 6-4 6-2", "status": "completed", "scheduled_date": "2026-01-22", "duration_minutes": 198},
+      {"player1_slug": "aryna-sabalenka", "player2_slug": "madison-keys", "winner_slug": "aryna-sabalenka", "round": "F", "score": "6-1 6-2", "status": "completed", "scheduled_date": "2026-01-25", "duration_minutes": 62},
+      {"player1_slug": "aryna-sabalenka", "player2_slug": "iga-swiatek", "winner_slug": "aryna-sabalenka", "round": "SF", "score": "6-3 6-4", "status": "completed", "scheduled_date": "2026-01-23", "duration_minutes": 88},
+      {"player1_slug": "madison-keys", "player2_slug": "coco-gauff", "winner_slug": "madison-keys", "round": "SF", "score": "7-5 6-7(3) 6-4", "status": "completed", "scheduled_date": "2026-01-23", "duration_minutes": 142}
+    ]
+  }
+]

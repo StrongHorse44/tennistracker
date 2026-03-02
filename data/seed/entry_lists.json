@@ -1,0 +1,84 @@
+[
+  {
+    "_comment": "=== QATAR OPEN 2026 (in_progress) — ATP players currently competing ===",
+    "tournament_slug": "qatar-open",
+    "year": 2026,
+    "entries": [
+      {"player_slug": "novak-djokovic", "entry_type": "Direct Acceptance", "entry_rank": 4, "seed": 3, "status": "competing", "source": "atptour.com"},
+      {"player_slug": "andrey-rublev", "entry_type": "Direct Acceptance", "entry_rank": 9, "seed": 5, "status": "competing", "source": "atptour.com"},
+      {"player_slug": "grigor-dimitrov", "entry_type": "Direct Acceptance", "entry_rank": 10, "seed": 6, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "holger-rune", "entry_type": "Direct Acceptance", "entry_rank": 13, "seed": 7, "status": "competing", "source": "atptour.com"},
+      {"player_slug": "frances-tiafoe", "entry_type": "Direct Acceptance", "entry_rank": 15, "seed": 8, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "hubert-hurkacz", "entry_type": "Direct Acceptance", "entry_rank": 17, "seed": null, "status": "competing", "source": "atptour.com"},
+      {"player_slug": "ugo-humbert", "entry_type": "Direct Acceptance", "entry_rank": 18, "seed": null, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "lorenzo-musetti", "entry_type": "Wild Card", "entry_rank": 20, "seed": null, "status": "eliminated", "source": "atptour.com"}
+    ]
+  },
+  {
+    "_comment": "=== DUBAI 2026 (entry_list) — confirmed entries for next week ===",
+    "tournament_slug": "dubai",
+    "year": 2026,
+    "entries": [
+      {"player_slug": "jannik-sinner", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "carlos-alcaraz", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "alexander-zverev", "entry_type": "Direct Acceptance", "entry_rank": 3, "seed": 3, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "taylor-fritz", "entry_type": "Direct Acceptance", "entry_rank": 5, "seed": 4, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "daniil-medvedev", "entry_type": "Direct Acceptance", "entry_rank": 6, "seed": 5, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "casper-ruud", "entry_type": "Direct Acceptance", "entry_rank": 7, "seed": 6, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "alex-de-minaur", "entry_type": "Direct Acceptance", "entry_rank": 8, "seed": 7, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "stefanos-tsitsipas", "entry_type": "Direct Acceptance", "entry_rank": 11, "seed": 8, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "tommy-paul", "entry_type": "Direct Acceptance", "entry_rank": 12, "seed": null, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "jack-draper", "entry_type": "Direct Acceptance", "entry_rank": 14, "seed": null, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "ben-shelton", "entry_type": "Direct Acceptance", "entry_rank": 16, "seed": null, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "sebastian-korda", "entry_type": "Wild Card", "entry_rank": 19, "seed": null, "status": "entered", "source": "tennis-infinity"}
+    ]
+  },
+  {
+    "_comment": "=== INDIAN WELLS 2026 (entry_list) — mandatory Masters 1000 ===",
+    "tournament_slug": "indian-wells",
+    "year": 2026,
+    "entries": [
+      {"player_slug": "jannik-sinner", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "carlos-alcaraz", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "alexander-zverev", "entry_type": "Direct Acceptance", "entry_rank": 3, "seed": 3, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "novak-djokovic", "entry_type": "Direct Acceptance", "entry_rank": 4, "seed": 4, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "taylor-fritz", "entry_type": "Direct Acceptance", "entry_rank": 5, "seed": 5, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "daniil-medvedev", "entry_type": "Direct Acceptance", "entry_rank": 6, "seed": 6, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "casper-ruud", "entry_type": "Direct Acceptance", "entry_rank": 7, "seed": 7, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "alex-de-minaur", "entry_type": "Direct Acceptance", "entry_rank": 8, "seed": 8, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "andrey-rublev", "entry_type": "Direct Acceptance", "entry_rank": 9, "seed": 9, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "grigor-dimitrov", "entry_type": "Direct Acceptance", "entry_rank": 10, "seed": 10, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "stefanos-tsitsipas", "entry_type": "Direct Acceptance", "entry_rank": 11, "seed": 11, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "tommy-paul", "entry_type": "Direct Acceptance", "entry_rank": 12, "seed": 12, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "holger-rune", "entry_type": "Direct Acceptance", "entry_rank": 13, "seed": 13, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "jack-draper", "entry_type": "Direct Acceptance", "entry_rank": 14, "seed": 14, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "frances-tiafoe", "entry_type": "Direct Acceptance", "entry_rank": 15, "seed": 15, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "ben-shelton", "entry_type": "Direct Acceptance", "entry_rank": 16, "seed": 16, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "aryna-sabalenka", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "iga-swiatek", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "coco-gauff", "entry_type": "Direct Acceptance", "entry_rank": 3, "seed": 3, "status": "confirmed", "source": "tennis-infinity"},
+      {"player_slug": "jasmine-paolini", "entry_type": "Direct Acceptance", "entry_rank": 4, "seed": 4, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "elena-rybakina", "entry_type": "Direct Acceptance", "entry_rank": 5, "seed": 5, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "jessica-pegula", "entry_type": "Direct Acceptance", "entry_rank": 7, "seed": 6, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "emma-navarro", "entry_type": "Direct Acceptance", "entry_rank": 8, "seed": 7, "status": "entered", "source": "tennis-infinity"},
+      {"player_slug": "madison-keys", "entry_type": "Direct Acceptance", "entry_rank": 12, "seed": 8, "status": "entered", "source": "tennis-infinity"}
+    ]
+  },
+  {
+    "_comment": "=== AUSTRALIAN OPEN 2026 (completed) — historical entries for results ===",
+    "tournament_slug": "australian-open",
+    "year": 2026,
+    "entries": [
+      {"player_slug": "jannik-sinner", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "champion", "source": "atptour.com"},
+      {"player_slug": "carlos-alcaraz", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "alexander-zverev", "entry_type": "Direct Acceptance", "entry_rank": 3, "seed": 3, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "novak-djokovic", "entry_type": "Direct Acceptance", "entry_rank": 4, "seed": 4, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "taylor-fritz", "entry_type": "Direct Acceptance", "entry_rank": 5, "seed": 5, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "daniil-medvedev", "entry_type": "Direct Acceptance", "entry_rank": 6, "seed": 6, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "aryna-sabalenka", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "champion", "source": "wtatennis.com"},
+      {"player_slug": "iga-swiatek", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "eliminated", "source": "wtatennis.com"},
+      {"player_slug": "coco-gauff", "entry_type": "Direct Acceptance", "entry_rank": 3, "seed": 3, "status": "eliminated", "source": "wtatennis.com"},
+      {"player_slug": "madison-keys", "entry_type": "Direct Acceptance", "entry_rank": 12, "seed": 12, "status": "eliminated", "source": "wtatennis.com"}
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "_comment": "=== MIAMI OPEN 2026 predictions — upcoming, no entry list yet ===",
+    "tournament_slug": "miami-open",
+    "year": 2026,
+    "predictions": [
+      {"player_slug": "jannik-sinner", "probability": 0.95, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_mandatory": 1, "current_ranking": 1, "surface_win_pct_career": 0.78}},
+      {"player_slug": "carlos-alcaraz", "probability": 0.93, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_mandatory": 1, "current_ranking": 2, "surface_win_pct_career": 0.74}},
+      {"player_slug": "alexander-zverev", "probability": 0.91, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_mandatory": 1, "current_ranking": 3, "surface_win_pct_career": 0.71}},
+      {"player_slug": "novak-djokovic", "probability": 0.72, "label": "likely", "confidence": "medium", "features": {"played_last_year": 0, "played_last_3_years": 1, "is_mandatory": 1, "current_ranking": 4, "surface_win_pct_career": 0.83, "age": 38.8}},
+      {"player_slug": "taylor-fritz", "probability": 0.94, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_mandatory": 1, "current_ranking": 5, "geographic_distance_km": 200}},
+      {"player_slug": "daniil-medvedev", "probability": 0.88, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_mandatory": 1, "current_ranking": 6}},
+      {"player_slug": "aryna-sabalenka", "probability": 0.92, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_mandatory": 1, "current_ranking": 1}},
+      {"player_slug": "iga-swiatek", "probability": 0.90, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 2, "is_mandatory": 1, "current_ranking": 2}},
+      {"player_slug": "coco-gauff", "probability": 0.96, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_mandatory": 1, "current_ranking": 3, "defending_champion": 1}}
+    ]
+  },
+  {
+    "_comment": "=== MONTE CARLO 2026 predictions — clay season ===",
+    "tournament_slug": "monte-carlo",
+    "year": 2026,
+    "predictions": [
+      {"player_slug": "carlos-alcaraz", "probability": 0.94, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "current_ranking": 2, "surface_win_pct_career": 0.82}},
+      {"player_slug": "novak-djokovic", "probability": 0.92, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "career_appearances": 18, "current_ranking": 4}},
+      {"player_slug": "alexander-zverev", "probability": 0.87, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "current_ranking": 3, "surface_win_pct_career": 0.68}},
+      {"player_slug": "jannik-sinner", "probability": 0.82, "label": "likely", "confidence": "medium", "features": {"played_last_year": 1, "played_last_3_years": 2, "current_ranking": 1, "surface_win_pct_career": 0.65}},
+      {"player_slug": "casper-ruud", "probability": 0.91, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "current_ranking": 7, "surface_win_pct_career": 0.75}},
+      {"player_slug": "stefanos-tsitsipas", "probability": 0.89, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "current_ranking": 11, "surface_win_pct_career": 0.72, "best_result_code": 7}},
+      {"player_slug": "taylor-fritz", "probability": 0.45, "label": "possible", "confidence": "low", "features": {"played_last_year": 0, "played_last_3_years": 1, "current_ranking": 5, "surface_win_pct_career": 0.52}},
+      {"player_slug": "holger-rune", "probability": 0.78, "label": "likely", "confidence": "medium", "features": {"played_last_year": 1, "played_last_3_years": 2, "current_ranking": 13, "surface_win_pct_career": 0.63}},
+      {"player_slug": "lorenzo-musetti", "probability": 0.85, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "current_ranking": 20, "surface_win_pct_career": 0.71}}
+    ]
+  },
+  {
+    "_comment": "=== ROLAND GARROS 2026 predictions — Grand Slam ===",
+    "tournament_slug": "roland-garros",
+    "year": 2026,
+    "predictions": [
+      {"player_slug": "jannik-sinner", "probability": 0.98, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_grand_slam": 1, "current_ranking": 1}},
+      {"player_slug": "carlos-alcaraz", "probability": 0.99, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_grand_slam": 1, "current_ranking": 2, "defending_champion": 1, "points_to_defend": 2000}},
+      {"player_slug": "alexander-zverev", "probability": 0.97, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_grand_slam": 1, "current_ranking": 3}},
+      {"player_slug": "novak-djokovic", "probability": 0.90, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_grand_slam": 1, "current_ranking": 4, "career_appearances": 20, "best_result_code": 7}},
+      {"player_slug": "aryna-sabalenka", "probability": 0.97, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_grand_slam": 1, "current_ranking": 1}},
+      {"player_slug": "iga-swiatek", "probability": 0.99, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_grand_slam": 1, "current_ranking": 2, "surface_win_pct_career": 0.92, "best_result_code": 7}},
+      {"player_slug": "coco-gauff", "probability": 0.97, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "played_last_3_years": 3, "is_grand_slam": 1, "current_ranking": 3}}
+    ]
+  },
+  {
+    "_comment": "=== WIMBLEDON 2026 predictions ===",
+    "tournament_slug": "wimbledon",
+    "year": 2026,
+    "predictions": [
+      {"player_slug": "jannik-sinner", "probability": 0.97, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "is_grand_slam": 1, "current_ranking": 1}},
+      {"player_slug": "carlos-alcaraz", "probability": 0.98, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "is_grand_slam": 1, "current_ranking": 2, "best_result_code": 7}},
+      {"player_slug": "novak-djokovic", "probability": 0.88, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "is_grand_slam": 1, "current_ranking": 4, "career_appearances": 21, "best_result_code": 7}},
+      {"player_slug": "jack-draper", "probability": 0.96, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "is_grand_slam": 1, "current_ranking": 14, "surface_win_pct_career": 0.76}},
+      {"player_slug": "aryna-sabalenka", "probability": 0.95, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "is_grand_slam": 1, "current_ranking": 1}},
+      {"player_slug": "elena-rybakina", "probability": 0.94, "label": "likely", "confidence": "high", "features": {"played_last_year": 1, "is_grand_slam": 1, "current_ranking": 5, "best_result_code": 7}}
+    ]
+  }
+]
