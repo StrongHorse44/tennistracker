@@ -1,6 +1,6 @@
 [
   {
-    "_comment": "=== QATAR OPEN 2026 matches — tournament in progress ===",
+    "_comment": "=== QATAR OPEN 2026 matches — completed ===",
     "tournament_slug": "qatar-open",
     "year": 2026,
     "matches": [
@@ -8,8 +8,23 @@
       {"player1_slug": "novak-djokovic", "player2_slug": "grigor-dimitrov", "winner_slug": "novak-djokovic", "round": "QF", "score": "6-4 7-6(3)", "status": "completed", "scheduled_date": "2026-02-19", "duration_minutes": 105},
       {"player1_slug": "andrey-rublev", "player2_slug": "ugo-humbert", "winner_slug": "andrey-rublev", "round": "R16", "score": "7-5 6-3", "status": "completed", "scheduled_date": "2026-02-18", "duration_minutes": 82},
       {"player1_slug": "andrey-rublev", "player2_slug": "frances-tiafoe", "winner_slug": "andrey-rublev", "round": "QF", "score": "6-7(5) 6-4 6-2", "status": "completed", "scheduled_date": "2026-02-19", "duration_minutes": 145},
-      {"player1_slug": "holger-rune", "player2_slug": "hubert-hurkacz", "winner_slug": null, "round": "QF", "score": null, "status": "scheduled", "scheduled_date": "2026-02-20", "duration_minutes": null},
-      {"player1_slug": "novak-djokovic", "player2_slug": "andrey-rublev", "winner_slug": null, "round": "SF", "score": null, "status": "scheduled", "scheduled_date": "2026-02-20", "duration_minutes": null}
+      {"player1_slug": "holger-rune", "player2_slug": "hubert-hurkacz", "winner_slug": "holger-rune", "round": "QF", "score": "7-6(4) 6-3", "status": "completed", "scheduled_date": "2026-02-20", "duration_minutes": 96},
+      {"player1_slug": "novak-djokovic", "player2_slug": "andrey-rublev", "winner_slug": "novak-djokovic", "round": "SF", "score": "6-3 6-4", "status": "completed", "scheduled_date": "2026-02-20", "duration_minutes": 88},
+      {"player1_slug": "holger-rune", "player2_slug": "novak-djokovic", "winner_slug": "novak-djokovic", "round": "F", "score": "6-4 3-6 6-3", "status": "completed", "scheduled_date": "2026-02-21", "duration_minutes": 132}
+    ]
+  },
+  {
+    "_comment": "=== DUBAI 2026 matches — completed ===",
+    "tournament_slug": "dubai",
+    "year": 2026,
+    "matches": [
+      {"player1_slug": "jannik-sinner", "player2_slug": "tommy-paul", "winner_slug": "jannik-sinner", "round": "QF", "score": "6-4 6-3", "status": "completed", "scheduled_date": "2026-02-27", "duration_minutes": 72},
+      {"player1_slug": "carlos-alcaraz", "player2_slug": "stefanos-tsitsipas", "winner_slug": "carlos-alcaraz", "round": "QF", "score": "6-3 7-5", "status": "completed", "scheduled_date": "2026-02-27", "duration_minutes": 95},
+      {"player1_slug": "alexander-zverev", "player2_slug": "casper-ruud", "winner_slug": "alexander-zverev", "round": "QF", "score": "6-4 6-4", "status": "completed", "scheduled_date": "2026-02-27", "duration_minutes": 80},
+      {"player1_slug": "daniil-medvedev", "player2_slug": "alex-de-minaur", "winner_slug": "daniil-medvedev", "round": "QF", "score": "7-6(5) 3-6 6-4", "status": "completed", "scheduled_date": "2026-02-27", "duration_minutes": 138},
+      {"player1_slug": "jannik-sinner", "player2_slug": "carlos-alcaraz", "winner_slug": "carlos-alcaraz", "round": "SF", "score": "3-6 6-4 7-6(3)", "status": "completed", "scheduled_date": "2026-02-28", "duration_minutes": 152},
+      {"player1_slug": "alexander-zverev", "player2_slug": "daniil-medvedev", "winner_slug": "alexander-zverev", "round": "SF", "score": "6-3 6-4", "status": "completed", "scheduled_date": "2026-02-28", "duration_minutes": 78},
+      {"player1_slug": "carlos-alcaraz", "player2_slug": "alexander-zverev", "winner_slug": "carlos-alcaraz", "round": "F", "score": "6-4 6-7(2) 7-5", "status": "completed", "scheduled_date": "2026-03-01", "duration_minutes": 165}
     ]
   },
   {

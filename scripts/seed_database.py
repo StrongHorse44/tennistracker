@@ -145,7 +145,13 @@ def seed_calendar(tournament_map: dict[str, Tournament]) -> None:
             tournament_id=tournament.id, year=year
         ).first()
         if existing:
-            print(f"  Edition already exists: {tournament.name} {year}")
+            # Update status if it changed in seed data
+            new_status = item.get("status", "upcoming")
+            if existing.status != new_status:
+                print(f"  Updating {tournament.name} {year}: {existing.status} -> {new_status}")
+                existing.status = new_status
+            else:
+                print(f"  Edition already exists: {tournament.name} {year}")
             continue
 
         edition = TournamentEdition(
@@ -191,6 +197,9 @@ def seed_entry_lists() -> int:
                 player_id=player.id, tournament_edition_id=edition.id
             ).first()
             if existing:
+                # Update status if it changed (e.g., competing -> champion)
+                if existing.status != entry.get("status", "entered"):
+                    existing.status = entry.get("status", "entered")
                 continue
 
             record = EntryListRecord(
@@ -232,6 +241,21 @@ def seed_matches() -> int:
                 continue
 
             winner = player_map.get(m["winner_slug"]) if m.get("winner_slug") else None
+
+            # Check for existing match to prevent duplicates
+            existing = Match.query.filter_by(
+                tournament_edition_id=edition.id,
+                player1_id=p1.id,
+                player2_id=p2.id,
+                round=m["round"],
+            ).first()
+            if existing:
+                # Update existing match with latest data
+                existing.winner_id = winner.id if winner else None
+                existing.score = m.get("score")
+                existing.status = m.get("status", "scheduled")
+                existing.duration_minutes = m.get("duration_minutes")
+                continue
 
             match = Match(
                 tournament_edition_id=edition.id,
@@ -348,6 +372,45 @@ def seed_historical_results() -> int:
 # ── Main ────────────────────────────────────────────────────────
 
 
+def cleanup_duplicate_matches() -> int:
+    """Remove duplicate match records, keeping the most recent one."""
+    from sqlalchemy import func
+
+    # Find duplicates by (tournament_edition_id, player1_id, player2_id, round)
+    dupes = (
+        db.session.query(
+            Match.tournament_edition_id,
+            Match.player1_id,
+            Match.player2_id,
+            Match.round,
+            func.count(Match.id).label("cnt"),
+            func.max(Match.id).label("keep_id"),
+        )
+        .group_by(Match.tournament_edition_id, Match.player1_id, Match.player2_id, Match.round)
+        .having(func.count(Match.id) > 1)
+        .all()
+    )
+
+    removed = 0
+    for dupe in dupes:
+        # Delete all but the one with the highest id
+        to_delete = Match.query.filter(
+            Match.tournament_edition_id == dupe.tournament_edition_id,
+            Match.player1_id == dupe.player1_id,
+            Match.player2_id == dupe.player2_id,
+            Match.round == dupe.round,
+            Match.id != dupe.keep_id,
+        ).all()
+        for m in to_delete:
+            db.session.delete(m)
+            removed += 1
+
+    if removed:
+        db.session.flush()
+
+    return removed
+
+
 def main() -> None:
     """Run the full seed process."""
     app = create_app("development")
@@ -355,6 +418,14 @@ def main() -> None:
     with app.app_context():
         print("Creating database tables...")
         db.create_all()
+
+        # Clean up any duplicate matches from previous seeds
+        print("\nCleaning up duplicate matches...")
+        removed = cleanup_duplicate_matches()
+        if removed:
+            print(f"  Removed {removed} duplicate matches")
+        else:
+            print("  No duplicates found")
 
         print("\nSeeding tournaments...")
         tournament_map = seed_tournaments()

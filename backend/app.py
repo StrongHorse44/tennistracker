@@ -1,11 +1,14 @@
 """Flask application factory for CourtTracker."""
 
+import logging
 import os
 
 from flask import Flask, jsonify
 
 from backend.config import config_by_name
 from backend.extensions import db, migrate, cors
+
+logger = logging.getLogger(__name__)
 
 
 def create_app(config_name: str | None = None) -> Flask:
@@ -40,6 +43,20 @@ def create_app(config_name: str | None = None) -> Flask:
     from backend.views.main import views_bp
 
     app.register_blueprint(views_bp)
+
+    # Auto-refresh tournament edition statuses on first request each day
+    _status_refreshed_date = [None]
+
+    @app.before_request
+    def _auto_refresh_statuses():
+        from datetime import date as _date
+        today = _date.today()
+        if _status_refreshed_date[0] != today:
+            from backend.utils.database import refresh_edition_statuses
+            count = refresh_edition_statuses(today)
+            _status_refreshed_date[0] = today
+            if count:
+                logger.info("Auto-refreshed %d tournament edition statuses", count)
 
     # API overview endpoint
     @app.route("/api/v1/")
