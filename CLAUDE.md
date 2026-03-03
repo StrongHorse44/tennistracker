@@ -62,7 +62,7 @@ backend/
 │   └── model.py            # TournamentEntryPredictor (sklearn wrapper)
 ├── services/               # Business logic layer (planned)
 └── utils/
-    └── database.py         # get_or_create helpers
+    └── database.py         # get_or_create helpers, refresh_edition_statuses
 
 data/seed/                  # Seed JSON files (tournaments, players, calendar)
 scripts/seed_database.py    # Database seeder
@@ -101,6 +101,15 @@ These string values are used in status columns (not enforced via Python Enum in 
 - **EntryStatus**: `entered`, `confirmed`, `withdrawn`, `replaced`, `competing`, `eliminated`, `champion`
 - **EntryType**: `Direct Acceptance`, `Wild Card`, `Qualifier`, `Special Exempt`, `Protected Ranking`, `Alternate`, `Unknown`
 - **MatchStatus**: `scheduled`, `live`, `completed`, `walkover`, `retired`, `defaulted`, `suspended`, `cancelled`
+
+### Auto-status refresh
+
+Tournament edition statuses are automatically corrected based on the current date via `refresh_edition_statuses()` in `backend/utils/database.py`. This runs once per day on the first request (via a `before_request` hook in `backend/app.py`):
+
+- Editions past their `end_date` → `completed` (unless already `completed` or `cancelled`)
+- Editions within `start_date..end_date` → `in_progress` (unless already `in_progress`, `completed`, or `cancelled`)
+
+This prevents stale statuses when scrapers haven't run. The seed data provides initial statuses, but the auto-refresh ensures they stay accurate over time.
 
 ### Serialization
 
@@ -233,9 +242,17 @@ Seed files in `data/seed/`:
 - `tournaments.json` — 20 tournaments (4 Grand Slams, 9 Masters, etc.) with geocoded locations
 - `players_atp_top100.json` — ATP top 20 players
 - `players_wta_top100.json` — WTA top 15 players
-- `calendar_2026.json` — 20 tournament edition records for the 2026 season
+- `calendar_2026.json` — 21 tournament edition records for the 2026 season
+- `entry_lists.json` — Entry lists for 4 tournaments (Australian Open, Qatar Open, Dubai, Indian Wells)
+- `matches.json` — Match results for 3 completed tournaments (Australian Open, Qatar Open, Dubai)
+- `predictions.json` — ML predictions for 4 upcoming tournaments (Miami, Monte Carlo, Roland Garros, Wimbledon)
+- `historical_results.json` — Historical participation records for 2 tournaments
 
-Run `python scripts/seed_database.py` to load. Script is idempotent (skips existing records by slug).
+Run `python scripts/seed_database.py` to load. The script is idempotent:
+- Skips existing records by slug/unique key
+- Updates existing edition statuses, entry statuses, and match results if seed data has changed
+- Cleans up duplicate matches on startup (from previous seeds that lacked dedup)
+- Match seeding checks for existing `(edition, player1, player2, round)` before inserting
 
 ## Environment setup
 
