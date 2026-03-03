@@ -2,10 +2,9 @@
 
 Copy this ENTIRE file's contents into the WSGI configuration file
 on PythonAnywhere's Web tab. The WSGI config file is typically at:
-  /var/www/skipperslipper_pythonanywhere_com_wsgi.py
+  /var/www/tennis_skipperslipper_pythonanywhere_com_wsgi.py
 
-Replace 'skipperslipper' with your actual PythonAnywhere username
-if different.
+PythonAnywhere converts hyphens to underscores in the WSGI filename.
 """
 
 import os

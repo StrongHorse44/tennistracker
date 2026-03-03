@@ -2,7 +2,7 @@
 
 import os
 
-from flask import Flask
+from flask import Flask, jsonify
 
 from backend.config import config_by_name
 from backend.extensions import db, migrate, cors
@@ -35,5 +35,22 @@ def create_app(config_name: str | None = None) -> Flask:
     app.register_blueprint(map_bp, url_prefix="/api/v1/map")
     app.register_blueprint(search_bp, url_prefix="/api/v1/search")
     app.register_blueprint(health_bp, url_prefix="/api/v1")
+
+    @app.route("/")
+    def index():
+        """Root endpoint with API overview."""
+        return jsonify({
+            "name": "CourtTracker API",
+            "version": "1.0",
+            "description": "Tennis player tracking and prediction platform",
+            "endpoints": {
+                "health": "/api/v1/health",
+                "players": "/api/v1/players",
+                "tournaments": "/api/v1/tournaments",
+                "predictions": "/api/v1/predictions",
+                "map": "/api/v1/map",
+                "search": "/api/v1/search",
+            },
+        })
 
     return app
