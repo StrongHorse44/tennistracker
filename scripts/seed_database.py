@@ -233,6 +233,12 @@ def seed_matches() -> int:
             print(f"  Warning: No edition for {slug} {year}, skipping")
             continue
 
+        # Clear existing matches for this edition so stale data is removed
+        # when seed data changes (e.g., corrected results)
+        old_count = Match.query.filter_by(tournament_edition_id=edition.id).delete()
+        if old_count:
+            print(f"  Cleared {old_count} old matches for {slug} {year}")
+
         for m in tournament_block["matches"]:
             p1 = player_map.get(m["player1_slug"])
             p2 = player_map.get(m["player2_slug"])

@@ -65,19 +65,23 @@
     ]
   },
   {
-    "_comment": "=== AUSTRALIAN OPEN 2026 (completed) — historical entries for results ===",
+    "_comment": "=== AUSTRALIAN OPEN 2026 (completed) — Alcaraz (M) and Rybakina (W) champions ===",
     "tournament_slug": "australian-open",
     "year": 2026,
     "entries": [
-      {"player_slug": "jannik-sinner", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "champion", "source": "atptour.com"},
-      {"player_slug": "carlos-alcaraz", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "carlos-alcaraz", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "champion", "source": "atptour.com"},
+      {"player_slug": "jannik-sinner", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "eliminated", "source": "atptour.com"},
       {"player_slug": "alexander-zverev", "entry_type": "Direct Acceptance", "entry_rank": 3, "seed": 3, "status": "eliminated", "source": "atptour.com"},
       {"player_slug": "novak-djokovic", "entry_type": "Direct Acceptance", "entry_rank": 4, "seed": 4, "status": "eliminated", "source": "atptour.com"},
-      {"player_slug": "taylor-fritz", "entry_type": "Direct Acceptance", "entry_rank": 5, "seed": 5, "status": "eliminated", "source": "atptour.com"},
-      {"player_slug": "daniil-medvedev", "entry_type": "Direct Acceptance", "entry_rank": 6, "seed": 6, "status": "eliminated", "source": "atptour.com"},
-      {"player_slug": "aryna-sabalenka", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "champion", "source": "wtatennis.com"},
+      {"player_slug": "lorenzo-musetti", "entry_type": "Direct Acceptance", "entry_rank": 5, "seed": 5, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "alex-de-minaur", "entry_type": "Direct Acceptance", "entry_rank": 6, "seed": 6, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "daniil-medvedev", "entry_type": "Direct Acceptance", "entry_rank": 7, "seed": 7, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "ben-shelton", "entry_type": "Direct Acceptance", "entry_rank": 8, "seed": 8, "status": "eliminated", "source": "atptour.com"},
+      {"player_slug": "aryna-sabalenka", "entry_type": "Direct Acceptance", "entry_rank": 1, "seed": 1, "status": "eliminated", "source": "wtatennis.com"},
       {"player_slug": "iga-swiatek", "entry_type": "Direct Acceptance", "entry_rank": 2, "seed": 2, "status": "eliminated", "source": "wtatennis.com"},
       {"player_slug": "coco-gauff", "entry_type": "Direct Acceptance", "entry_rank": 3, "seed": 3, "status": "eliminated", "source": "wtatennis.com"},
+      {"player_slug": "elena-rybakina", "entry_type": "Direct Acceptance", "entry_rank": 5, "seed": 5, "status": "champion", "source": "wtatennis.com"},
+      {"player_slug": "jessica-pegula", "entry_type": "Direct Acceptance", "entry_rank": 7, "seed": 7, "status": "eliminated", "source": "wtatennis.com"},
       {"player_slug": "madison-keys", "entry_type": "Direct Acceptance", "entry_rank": 12, "seed": 12, "status": "eliminated", "source": "wtatennis.com"}
     ]
   }
