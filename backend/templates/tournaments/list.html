@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Tournaments — CourtTracker{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <h4 class="mb-3"><i class="bi bi-trophy"></i> Tournaments</h4>
+
+  <!-- Filter Tabs -->
+  <div class="d-flex gap-2 mb-3 flex-wrap">
+    <ul class="nav ct-tour-tabs me-4">
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if not tour }}" href="{{ url_for('views.tournaments_list', surface=surface) }}">All Tours</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if tour == 'ATP' }}" href="{{ url_for('views.tournaments_list', tour='ATP', surface=surface) }}">ATP</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if tour == 'WTA' }}" href="{{ url_for('views.tournaments_list', tour='WTA', surface=surface) }}">WTA</a>
+      </li>
+    </ul>
+    <ul class="nav ct-tour-tabs">
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if not surface }}" href="{{ url_for('views.tournaments_list', tour=tour) }}">All Surfaces</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if surface == 'Hard' }}" href="{{ url_for('views.tournaments_list', tour=tour, surface='Hard') }}">Hard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if surface == 'Clay' }}" href="{{ url_for('views.tournaments_list', tour=tour, surface='Clay') }}">Clay</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if surface == 'Grass' }}" href="{{ url_for('views.tournaments_list', tour=tour, surface='Grass') }}">Grass</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="row g-3">
+    {% if tournaments %}
+      {% for tournament in tournaments %}
+      <div class="col-md-6 col-lg-4">
+        <div class="ct-card card h-100">
+          <div class="card-body">
+            <h6 class="mb-1">
+              <a href="{{ url_for('views.tournament_detail', slug=tournament.slug) }}" class="text-decoration-none text-dark">
+                {{ tournament.name }}
+              </a>
+            </h6>
+            <div class="text-muted mb-2" style="font-size: 0.85rem">
+              <i class="bi bi-geo-alt"></i> {{ tournament.city }}, {{ tournament.country_name or tournament.country }}
+            </div>
+            <div class="d-flex gap-2 align-items-center mb-2">
+              <span class="ct-surface ct-surface-{{ tournament.surface|lower }}">{{ tournament.surface }}</span>
+              {% set cat_class = 'grand-slam' if 'Grand Slam' in tournament.category else '1000' if '1000' in tournament.category else '500' if '500' in tournament.category else '250' %}
+              <span class="ct-category ct-category-{{ cat_class }}">{{ tournament.category }}</span>
+            </div>
+            {% if tournament.id in upcoming_editions %}
+              {% set next_ed = upcoming_editions[tournament.id] %}
+              <div class="mt-2 pt-2 border-top" style="font-size: 0.85rem">
+                <a href="{{ url_for('views.tournament_edition', slug=tournament.slug, year=next_ed.year) }}" class="text-decoration-none">
+                  <i class="bi bi-calendar-event"></i>
+                  {{ next_ed.start_date.strftime('%b %d') }}–{{ next_ed.end_date.strftime('%b %d, %Y') }}
+                </a>
+                <span class="ct-status ct-status-{{ next_ed.status }} ms-1">{{ next_ed.status|replace('_', ' ')|title }}</span>
+              </div>
+            {% endif %}
+            {% if tournament.winner_points %}
+            <div class="mt-1" style="font-size: 0.8rem; color: var(--ct-gray)">
+              <i class="bi bi-star"></i> {{ tournament.winner_points }} pts to winner
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="col-12">
+        <div class="ct-empty">
+          <i class="bi bi-trophy"></i>
+          No tournaments found
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Pagination -->
+  {% if pagination.pages > 1 %}
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+      {% if pagination.has_prev %}
+        <li class="page-item">
+          <a class="page-link" href="{{ url_for('views.tournaments_list', page=pagination.prev_num, tour=tour, surface=surface) }}">Previous</a>
+        </li>
+      {% endif %}
+      {% for p in pagination.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+        {% if p %}
+          <li class="page-item {{ 'active' if p == pagination.page }}">
+            <a class="page-link" href="{{ url_for('views.tournaments_list', page=p, tour=tour, surface=surface) }}">{{ p }}</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+        {% endif %}
+      {% endfor %}
+      {% if pagination.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="{{ url_for('views.tournaments_list', page=pagination.next_num, tour=tour, surface=surface) }}">Next</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</div>
+{% endblock %}

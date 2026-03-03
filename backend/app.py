@@ -21,7 +21,7 @@ def create_app(config_name: str | None = None) -> Flask:
     migrate.init_app(app, db)
     cors.init_app(app)
 
-    # Register blueprints
+    # Register API blueprints
     from backend.api.players import players_bp
     from backend.api.tournaments import tournaments_bp
     from backend.api.predictions import predictions_bp
@@ -36,9 +36,15 @@ def create_app(config_name: str | None = None) -> Flask:
     app.register_blueprint(search_bp, url_prefix="/api/v1/search")
     app.register_blueprint(health_bp, url_prefix="/api/v1")
 
-    @app.route("/")
-    def index():
-        """Root endpoint with API overview."""
+    # Register frontend views
+    from backend.views.main import views_bp
+
+    app.register_blueprint(views_bp)
+
+    # API overview endpoint
+    @app.route("/api/v1/")
+    def api_index():
+        """API overview with available endpoints."""
         return jsonify({
             "name": "CourtTracker API",
             "version": "1.0",

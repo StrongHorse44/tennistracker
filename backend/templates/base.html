@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CourtTracker{% endblock %}</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg ct-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand ct-brand" href="{{ url_for('views.dashboard') }}">
+        <i class="bi bi-broadcast"></i> CourtTracker
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'views.dashboard' %}active{% endif %}" href="{{ url_for('views.dashboard') }}">
+              <i class="bi bi-globe-americas"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint and 'player' in request.endpoint %}active{% endif %}" href="{{ url_for('views.players_list') }}">
+              <i class="bi bi-people"></i> Players
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint and 'tournament' in request.endpoint %}active{% endif %}" href="{{ url_for('views.tournaments_list') }}">
+              <i class="bi bi-trophy"></i> Tournaments
+            </a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" action="{{ url_for('views.search') }}" method="get">
+          <div class="input-group">
+            <input class="form-control ct-search" type="search" name="q" placeholder="Search players or tournaments..." value="{{ request.args.get('q', '') }}">
+            <button class="btn ct-btn-search" type="submit"><i class="bi bi-search"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="ct-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="ct-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <span class="ct-footer-brand"><i class="bi bi-broadcast"></i> CourtTracker</span>
+          <p class="ct-footer-tagline">Flight tracker for professional tennis</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="{{ url_for('views.dashboard') }}" class="ct-footer-link">Dashboard</a>
+          <a href="{{ url_for('views.players_list') }}" class="ct-footer-link">Players</a>
+          <a href="{{ url_for('views.tournaments_list') }}" class="ct-footer-link">Tournaments</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
