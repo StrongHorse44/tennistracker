@@ -1,0 +1,30 @@
+[
+  {
+    "_comment": "=== AUSTRALIAN OPEN 2026 results ===",
+    "tournament_slug": "australian-open",
+    "year": 2026,
+    "results": [
+      {"player_slug": "jannik-sinner", "result": "W", "rounds_won": 7, "ranking_points_earned": 2000, "prize_money_earned_usd": 3500000, "ranking_at_time": 1, "seed_at_time": 1, "points_to_defend": 2000, "matches_played": 7, "matches_won": 7},
+      {"player_slug": "alexander-zverev", "result": "F", "rounds_won": 6, "ranking_points_earned": 1200, "prize_money_earned_usd": 1750000, "ranking_at_time": 3, "seed_at_time": 3, "points_to_defend": 720, "matches_played": 7, "matches_won": 6},
+      {"player_slug": "novak-djokovic", "result": "SF", "rounds_won": 5, "ranking_points_earned": 720, "prize_money_earned_usd": 900000, "ranking_at_time": 4, "seed_at_time": 4, "points_to_defend": 360, "matches_played": 6, "matches_won": 5},
+      {"player_slug": "taylor-fritz", "result": "SF", "rounds_won": 5, "ranking_points_earned": 720, "prize_money_earned_usd": 900000, "ranking_at_time": 5, "seed_at_time": 5, "points_to_defend": 180, "matches_played": 6, "matches_won": 5},
+      {"player_slug": "carlos-alcaraz", "result": "QF", "rounds_won": 4, "ranking_points_earned": 360, "prize_money_earned_usd": 500000, "ranking_at_time": 2, "seed_at_time": 2, "points_to_defend": 720, "matches_played": 5, "matches_won": 4},
+      {"player_slug": "daniil-medvedev", "result": "QF", "rounds_won": 4, "ranking_points_earned": 360, "prize_money_earned_usd": 500000, "ranking_at_time": 6, "seed_at_time": 6, "points_to_defend": 1200, "matches_played": 5, "matches_won": 4},
+      {"player_slug": "aryna-sabalenka", "result": "W", "rounds_won": 7, "ranking_points_earned": 2000, "prize_money_earned_usd": 3500000, "ranking_at_time": 1, "seed_at_time": 1, "points_to_defend": 2000, "matches_played": 7, "matches_won": 7},
+      {"player_slug": "madison-keys", "result": "F", "rounds_won": 6, "ranking_points_earned": 1200, "prize_money_earned_usd": 1750000, "ranking_at_time": 12, "seed_at_time": 12, "points_to_defend": 90, "matches_played": 7, "matches_won": 6},
+      {"player_slug": "iga-swiatek", "result": "SF", "rounds_won": 5, "ranking_points_earned": 720, "prize_money_earned_usd": 900000, "ranking_at_time": 2, "seed_at_time": 2, "points_to_defend": 360, "matches_played": 6, "matches_won": 5},
+      {"player_slug": "coco-gauff", "result": "SF", "rounds_won": 5, "ranking_points_earned": 720, "prize_money_earned_usd": 900000, "ranking_at_time": 3, "seed_at_time": 3, "points_to_defend": 720, "matches_played": 6, "matches_won": 5}
+    ]
+  },
+  {
+    "_comment": "=== BRISBANE 2026 results ===",
+    "tournament_slug": "brisbane",
+    "year": 2026,
+    "results": [
+      {"player_slug": "novak-djokovic", "result": "W", "rounds_won": 5, "ranking_points_earned": 250, "prize_money_earned_usd": 100000, "ranking_at_time": 4, "seed_at_time": 1, "points_to_defend": 0, "matches_played": 5, "matches_won": 5},
+      {"player_slug": "grigor-dimitrov", "result": "F", "rounds_won": 4, "ranking_points_earned": 150, "prize_money_earned_usd": 55000, "ranking_at_time": 10, "seed_at_time": 3, "points_to_defend": 150, "matches_played": 5, "matches_won": 4},
+      {"player_slug": "holger-rune", "result": "SF", "rounds_won": 3, "ranking_points_earned": 90, "prize_money_earned_usd": 30000, "ranking_at_time": 13, "seed_at_time": 5, "points_to_defend": 0, "matches_played": 4, "matches_won": 3},
+      {"player_slug": "frances-tiafoe", "result": "QF", "rounds_won": 2, "ranking_points_earned": 45, "prize_money_earned_usd": 17500, "ranking_at_time": 15, "seed_at_time": 7, "points_to_defend": 45, "matches_played": 3, "matches_won": 2}
+    ]
+  }
+]
