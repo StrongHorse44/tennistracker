@@ -1,6 +1,6 @@
 [
   {"tournament_slug": "brisbane", "year": 2026, "start_date": "2026-01-05", "end_date": "2026-01-11", "status": "completed"},
-  {"tournament_slug": "australian-open", "year": 2026, "start_date": "2026-01-19", "end_date": "2026-02-01", "status": "completed"},
+  {"tournament_slug": "australian-open", "year": 2026, "start_date": "2026-01-18", "end_date": "2026-02-01", "status": "completed"},
   {"tournament_slug": "qatar-open", "year": 2026, "start_date": "2026-02-16", "end_date": "2026-02-21", "status": "completed"},
   {"tournament_slug": "dubai", "year": 2026, "start_date": "2026-02-23", "end_date": "2026-03-01", "status": "completed"},
   {"tournament_slug": "indian-wells", "year": 2026, "start_date": "2026-03-09", "end_date": "2026-03-22", "status": "entry_list"},

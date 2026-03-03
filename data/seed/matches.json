@@ -28,18 +28,19 @@
     ]
   },
   {
-    "_comment": "=== AUSTRALIAN OPEN 2026 completed matches ===",
+    "_comment": "=== AUSTRALIAN OPEN 2026 completed matches — Alcaraz (M) and Rybakina (W) champions ===",
     "tournament_slug": "australian-open",
     "year": 2026,
     "matches": [
-      {"player1_slug": "jannik-sinner", "player2_slug": "alexander-zverev", "winner_slug": "jannik-sinner", "round": "F", "score": "6-3 7-6(4) 6-3", "status": "completed", "scheduled_date": "2026-01-26", "duration_minutes": 162},
-      {"player1_slug": "jannik-sinner", "player2_slug": "novak-djokovic", "winner_slug": "jannik-sinner", "round": "SF", "score": "7-6(2) 6-2 6-3", "status": "completed", "scheduled_date": "2026-01-24", "duration_minutes": 148},
-      {"player1_slug": "alexander-zverev", "player2_slug": "taylor-fritz", "winner_slug": "alexander-zverev", "round": "SF", "score": "6-4 3-6 6-4 6-3", "status": "completed", "scheduled_date": "2026-01-24", "duration_minutes": 185},
-      {"player1_slug": "jannik-sinner", "player2_slug": "daniil-medvedev", "winner_slug": "jannik-sinner", "round": "QF", "score": "6-2 6-4 6-1", "status": "completed", "scheduled_date": "2026-01-22", "duration_minutes": 108},
-      {"player1_slug": "carlos-alcaraz", "player2_slug": "novak-djokovic", "winner_slug": "novak-djokovic", "round": "QF", "score": "4-6 6-4 6-4 6-2", "status": "completed", "scheduled_date": "2026-01-22", "duration_minutes": 198},
-      {"player1_slug": "aryna-sabalenka", "player2_slug": "madison-keys", "winner_slug": "aryna-sabalenka", "round": "F", "score": "6-1 6-2", "status": "completed", "scheduled_date": "2026-01-25", "duration_minutes": 62},
-      {"player1_slug": "aryna-sabalenka", "player2_slug": "iga-swiatek", "winner_slug": "aryna-sabalenka", "round": "SF", "score": "6-3 6-4", "status": "completed", "scheduled_date": "2026-01-23", "duration_minutes": 88},
-      {"player1_slug": "madison-keys", "player2_slug": "coco-gauff", "winner_slug": "madison-keys", "round": "SF", "score": "7-5 6-7(3) 6-4", "status": "completed", "scheduled_date": "2026-01-23", "duration_minutes": 142}
+      {"player1_slug": "carlos-alcaraz", "player2_slug": "novak-djokovic", "winner_slug": "carlos-alcaraz", "round": "F", "score": "2-6 6-2 6-3 7-5", "status": "completed", "scheduled_date": "2026-02-01", "duration_minutes": 170},
+      {"player1_slug": "carlos-alcaraz", "player2_slug": "alexander-zverev", "winner_slug": "carlos-alcaraz", "round": "SF", "score": "6-4 7-6(5) 6-7(3) 6-7(4) 7-5", "status": "completed", "scheduled_date": "2026-01-30", "duration_minutes": 327},
+      {"player1_slug": "novak-djokovic", "player2_slug": "jannik-sinner", "winner_slug": "novak-djokovic", "round": "SF", "score": "3-6 6-3 4-6 6-4 6-4", "status": "completed", "scheduled_date": "2026-01-30", "duration_minutes": 249},
+      {"player1_slug": "jannik-sinner", "player2_slug": "ben-shelton", "winner_slug": "jannik-sinner", "round": "QF", "score": "6-3 6-4 6-4", "status": "completed", "scheduled_date": "2026-01-28", "duration_minutes": 110},
+      {"player1_slug": "novak-djokovic", "player2_slug": "lorenzo-musetti", "winner_slug": "novak-djokovic", "round": "QF", "score": "4-6 3-6 3-1 ret.", "status": "retired", "scheduled_date": "2026-01-28", "duration_minutes": 95},
+      {"player1_slug": "carlos-alcaraz", "player2_slug": "alex-de-minaur", "winner_slug": "carlos-alcaraz", "round": "QF", "score": "6-3 6-4 6-2", "status": "completed", "scheduled_date": "2026-01-29", "duration_minutes": 105},
+      {"player1_slug": "elena-rybakina", "player2_slug": "aryna-sabalenka", "winner_slug": "elena-rybakina", "round": "F", "score": "6-4 4-6 6-4", "status": "completed", "scheduled_date": "2026-01-31", "duration_minutes": 138},
+      {"player1_slug": "elena-rybakina", "player2_slug": "jessica-pegula", "winner_slug": "elena-rybakina", "round": "SF", "score": "6-4 7-6(7)", "status": "completed", "scheduled_date": "2026-01-29", "duration_minutes": 95},
+      {"player1_slug": "elena-rybakina", "player2_slug": "iga-swiatek", "winner_slug": "elena-rybakina", "round": "QF", "score": "6-4 6-3", "status": "completed", "scheduled_date": "2026-01-28", "duration_minutes": 85}
     ]
   }
 ]
