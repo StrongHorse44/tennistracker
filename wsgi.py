@@ -1,7 +1,7 @@
-"""WSGI entry point for PythonAnywhere deployment.
+"""WSGI entry point for production deployment.
 
-PythonAnywhere WSGI configuration file path should point to this file.
-In the PythonAnywhere Web tab, set the WSGI config to import from here.
+Can be used with any WSGI server (gunicorn, uWSGI, etc.):
+  gunicorn wsgi:application
 """
 
 import os
@@ -11,6 +11,11 @@ import sys
 project_home = os.path.dirname(os.path.abspath(__file__))
 if project_home not in sys.path:
     sys.path.insert(0, project_home)
+
+# Load .env file using python-dotenv (installed via requirements.txt)
+from dotenv import load_dotenv
+
+load_dotenv(os.path.join(project_home, ".env"))
 
 # Set environment to production
 os.environ.setdefault("FLASK_ENV", "production")
