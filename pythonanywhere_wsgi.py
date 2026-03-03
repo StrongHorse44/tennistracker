@@ -18,17 +18,13 @@ project_home = f"/home/{PA_USERNAME}/tennistracker"
 if project_home not in sys.path:
     sys.path.insert(0, project_home)
 
-# Load .env file if it exists
-env_path = os.path.join(project_home, ".env")
-if os.path.exists(env_path):
-    with open(env_path) as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                key, _, value = line.partition("=")
-                os.environ.setdefault(key.strip(), value.strip())
+# Load .env file using python-dotenv (installed via requirements.txt)
+from dotenv import load_dotenv
 
-# Set production environment
+env_path = os.path.join(project_home, ".env")
+load_dotenv(env_path)
+
+# Set production environment (override any .env value)
 os.environ["FLASK_ENV"] = "production"
 
 # Import the app
