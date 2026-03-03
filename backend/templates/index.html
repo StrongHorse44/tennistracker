@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %}CourtTracker — Flight Tracker for Tennis{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+  <!-- Stats Row -->
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+      <div class="ct-card card ct-stat-card">
+        <div class="ct-stat-number">{{ stats.players }}</div>
+        <div class="ct-stat-label">Active Players</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="ct-card card ct-stat-card">
+        <div class="ct-stat-number">{{ stats.tournaments }}</div>
+        <div class="ct-stat-label">Tournaments</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="ct-card card ct-stat-card">
+        <div class="ct-stat-number">{{ stats.upcoming }}</div>
+        <div class="ct-stat-label">Upcoming Events</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="ct-card card ct-stat-card">
+        <div class="ct-stat-number">{{ stats.predictions }}</div>
+        <div class="ct-stat-label">Predictions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="ct-card card mb-4">
+    <div class="ct-card-header card-header d-flex justify-content-between align-items-center">
+      <span><i class="bi bi-globe-americas"></i> Player Map</span>
+      <small class="text-muted">Where players are competing right now</small>
+    </div>
+    <div class="card-body p-0">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <!-- Upcoming Tournaments -->
+    <div class="col-lg-7">
+      <div class="ct-card card">
+        <div class="ct-card-header card-header">
+          <i class="bi bi-calendar-event"></i> Upcoming Tournaments
+        </div>
+        <div class="card-body p-0">
+          {% if upcoming %}
+            {% for edition, tournament in upcoming %}
+            <a href="{{ url_for('views.tournament_edition', slug=tournament.slug, year=edition.year) }}" class="ct-player-card">
+              <div class="ct-player-info">
+                <div class="ct-player-name">{{ tournament.name }}</div>
+                <div class="ct-player-meta">
+                  {{ tournament.city }}, {{ tournament.country_name or tournament.country }}
+                  &middot; {{ edition.start_date.strftime('%b %d') }}–{{ edition.end_date.strftime('%b %d, %Y') }}
+                </div>
+              </div>
+              <div>
+                <span class="ct-surface ct-surface-{{ tournament.surface|lower }}">{{ tournament.surface }}</span>
+                <span class="ct-status ct-status-{{ edition.status }}">{{ edition.status|replace('_', ' ')|title }}</span>
+              </div>
+            </a>
+            {% endfor %}
+          {% else %}
+            <div class="ct-empty">
+              <i class="bi bi-calendar-x"></i>
+              No upcoming tournaments found
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Predictions -->
+    <div class="col-lg-5">
+      <div class="ct-card card">
+        <div class="ct-card-header card-header">
+          <i class="bi bi-graph-up-arrow"></i> Top Predictions
+        </div>
+        <div class="card-body p-0">
+          {% if recent_predictions %}
+            {% for pred, player, edition, tournament in recent_predictions %}
+            <div class="ct-player-card">
+              <div class="ct-player-rank">{{ player.current_singles_rank or '-' }}</div>
+              <div class="ct-player-info">
+                <a href="{{ url_for('views.player_detail', slug=player.slug) }}" class="ct-player-name text-decoration-none text-dark">{{ player.full_name }}</a>
+                <div class="ct-player-meta">
+                  {{ tournament.name }} &middot; {{ edition.start_date.strftime('%b %d') }}
+                </div>
+              </div>
+              <div style="min-width: 60px; text-align: right">
+                <div style="font-weight: 600; font-size: 0.9rem; color: {% if pred.will_enter_probability|float >= 0.7 %}var(--ct-green){% elif pred.will_enter_probability|float >= 0.4 %}var(--ct-gold){% else %}var(--ct-clay){% endif %}">
+                  {{ "%.0f"|format(pred.will_enter_probability|float * 100) }}%
+                </div>
+                <div class="ct-prob-bar" style="width: 50px; margin-left: auto">
+                  <div class="ct-prob-fill {% if pred.will_enter_probability|float >= 0.7 %}ct-prob-high{% elif pred.will_enter_probability|float >= 0.4 %}ct-prob-medium{% else %}ct-prob-low{% endif %}" style="width: {{ pred.will_enter_probability|float * 100 }}%"></div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          {% else %}
+            <div class="ct-empty">
+              <i class="bi bi-graph-up"></i>
+              No predictions yet
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if in_progress %}
+      <div class="ct-card card mt-4">
+        <div class="ct-card-header card-header">
+          <i class="bi bi-lightning"></i> Live Tournaments
+        </div>
+        <div class="card-body p-0">
+          {% for edition, tournament in in_progress %}
+          <a href="{{ url_for('views.tournament_edition', slug=tournament.slug, year=edition.year) }}" class="ct-player-card">
+            <div class="ct-player-info">
+              <div class="ct-player-name">{{ tournament.name }}</div>
+              <div class="ct-player-meta">{{ tournament.city }} &middot; {{ tournament.surface }}</div>
+            </div>
+            <span class="ct-status ct-status-in_progress">In Progress</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var locations = {{ map_locations|safe }};
+    initMap(locations);
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% block title %}{{ player.full_name }} — CourtTracker{% endblock %}
+
+{% block content %}
+<!-- Profile Header -->
+<div class="ct-profile-header">
+  <div class="container">
+    <div class="d-flex align-items-center gap-4">
+      <div class="ct-profile-rank-badge">{{ player.current_singles_rank or '-' }}</div>
+      <div>
+        <h1 class="ct-profile-name">{{ player.full_name }}</h1>
+        <div class="ct-profile-meta">
+          {{ player.nationality_name or player.nationality }}
+          &middot; {{ player.tour }}
+          {% if player.plays %}&middot; {{ player.plays }}{% endif %}
+          {% if player.backhand %}&middot; {{ player.backhand }} backhand{% endif %}
+        </div>
+      </div>
+      {% if player.current_singles_points %}
+      <div class="ms-auto text-end d-none d-md-block">
+        <div style="font-size: 1.8rem; font-weight: 700">{{ "{:,}".format(player.current_singles_points) }}</div>
+        <div style="font-size: 0.85rem; opacity: 0.7">ranking points</div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="container py-4">
+  <div class="row g-4">
+
+    <!-- Left column: Bio + Current -->
+    <div class="col-lg-4">
+      <!-- Bio Card -->
+      <div class="ct-card card mb-4">
+        <div class="ct-card-header card-header">Player Info</div>
+        <div class="card-body">
+          <table class="table table-sm mb-0">
+            {% if player.date_of_birth %}
+            <tr><td class="text-muted">Born</td><td>{{ player.date_of_birth.strftime('%B %d, %Y') }}</td></tr>
+            {% endif %}
+            {% if player.height_cm %}
+            <tr><td class="text-muted">Height</td><td>{{ player.height_cm }} cm</td></tr>
+            {% endif %}
+            {% if player.weight_kg %}
+            <tr><td class="text-muted">Weight</td><td>{{ player.weight_kg }} kg</td></tr>
+            {% endif %}
+            {% if player.turned_pro_year %}
+            <tr><td class="text-muted">Turned Pro</td><td>{{ player.turned_pro_year }}</td></tr>
+            {% endif %}
+            <tr><td class="text-muted">Singles Rank</td><td><strong>#{{ player.current_singles_rank or 'N/A' }}</strong></td></tr>
+            {% if player.current_doubles_rank %}
+            <tr><td class="text-muted">Doubles Rank</td><td>#{{ player.current_doubles_rank }}</td></tr>
+            {% endif %}
+          </table>
+        </div>
+      </div>
+
+      <!-- Current Location -->
+      {% if current %}
+      {% set entry, edition, tournament = current %}
+      <div class="ct-card card mb-4">
+        <div class="ct-card-header card-header">
+          <i class="bi bi-geo-alt-fill" style="color: var(--ct-green)"></i> Currently At
+        </div>
+        <div class="card-body">
+          <h6>
+            <a href="{{ url_for('views.tournament_edition', slug=tournament.slug, year=edition.year) }}" class="text-decoration-none">
+              {{ tournament.name }}
+            </a>
+          </h6>
+          <div class="text-muted mb-2">{{ tournament.city }}, {{ tournament.country_name or tournament.country }}</div>
+          <span class="ct-surface ct-surface-{{ tournament.surface|lower }}">{{ tournament.surface }}</span>
+          <span class="ct-status ct-status-{{ entry.status }}">{{ entry.status|title }}</span>
+          {% if entry.seed %}<span class="badge bg-secondary">Seed #{{ entry.seed }}</span>{% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Recent Matches -->
+      {% if recent_matches %}
+      <div class="ct-card card">
+        <div class="ct-card-header card-header">Recent Matches</div>
+        <div class="card-body p-0">
+          {% for match, edition, tournament in recent_matches %}
+          <div class="ct-player-card" style="flex-direction: column; align-items: flex-start">
+            <div class="d-flex justify-content-between w-100 mb-1">
+              <small class="text-muted">{{ tournament.name }} — {{ match.round }}</small>
+              <small class="text-muted">{{ match.scheduled_date.strftime('%b %d') if match.scheduled_date else '' }}</small>
+            </div>
+            <div class="d-flex align-items-center w-100">
+              <div class="flex-grow-1">
+                <span {% if match.winner_id == match.player1_id %}style="font-weight:700"{% endif %}>
+                  {{ match.player1.full_name if match.player1 else 'TBD' }}
+                </span>
+                vs
+                <span {% if match.winner_id == match.player2_id %}style="font-weight:700"{% endif %}>
+                  {{ match.player2.full_name if match.player2 else 'TBD' }}
+                </span>
+              </div>
+              {% if match.score %}
+              <span class="badge bg-light text-dark">{{ match.score }}</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Right column: Timeline -->
+    <div class="col-lg-8">
+      <div class="ct-card card">
+        <div class="ct-card-header card-header d-flex justify-content-between align-items-center">
+          <span><i class="bi bi-calendar3"></i> {{ year }} Season Timeline</span>
+          <div>
+            <a href="{{ url_for('views.player_detail', slug=player.slug, year=year - 1) }}" class="btn btn-sm btn-outline-secondary">&laquo; {{ year - 1 }}</a>
+            <a href="{{ url_for('views.player_detail', slug=player.slug, year=year + 1) }}" class="btn btn-sm btn-outline-secondary">{{ year + 1 }} &raquo;</a>
+          </div>
+        </div>
+        <div class="card-body">
+          {% if timeline %}
+          <div class="ct-timeline">
+            {% for event in timeline %}
+            <div class="ct-timeline-item">
+              <div class="ct-timeline-dot ct-timeline-dot-{{ event.tracking_status }}"></div>
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h6 class="mb-1">
+                    <a href="{{ url_for('views.tournament_edition', slug=event.tournament.slug, year=event.edition.year) }}" class="text-decoration-none text-dark">
+                      {{ event.tournament.name }}
+                    </a>
+                  </h6>
+                  <div class="text-muted" style="font-size: 0.85rem">
+                    {{ event.tournament.city }}, {{ event.tournament.country_name or event.tournament.country }}
+                    &middot; {{ event.edition.start_date.strftime('%b %d') }}–{{ event.edition.end_date.strftime('%b %d') }}
+                  </div>
+
+                  {% if event.entry %}
+                  <div class="mt-1">
+                    <span class="ct-status ct-status-{{ event.entry.status }}">{{ event.entry.status|title }}</span>
+                    <span class="text-muted" style="font-size: 0.8rem">{{ event.entry.entry_type }}</span>
+                    {% if event.entry.seed %}<span class="badge bg-secondary">Seed #{{ event.entry.seed }}</span>{% endif %}
+                  </div>
+                  {% endif %}
+
+                  {% if event.historical %}
+                  <div class="mt-1">
+                    <span class="badge bg-info text-dark">{{ event.historical.result or 'Participated' }}</span>
+                    {% if event.historical.ranking_points_earned %}
+                    <span class="text-muted" style="font-size: 0.8rem">+{{ event.historical.ranking_points_earned }} pts</span>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+
+                  {% if event.prediction and event.tracking_status != 'confirmed' %}
+                  <div class="mt-1">
+                    <span style="font-size: 0.85rem; color: {% if event.prediction.will_enter_probability|float >= 0.7 %}var(--ct-green){% elif event.prediction.will_enter_probability|float >= 0.4 %}var(--ct-gold){% else %}var(--ct-clay){% endif %}; font-weight: 600">
+                      {{ "%.0f"|format(event.prediction.will_enter_probability|float * 100) }}% predicted
+                    </span>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="text-end">
+                  <span class="ct-surface ct-surface-{{ event.tournament.surface|lower }}">{{ event.tournament.surface }}</span>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="ct-empty">
+            <i class="bi bi-calendar-x"></i>
+            No events found for {{ year }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

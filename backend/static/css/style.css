@@ -1,0 +1,406 @@
+/* ============================================
+   CourtTracker — Custom Styles
+   ============================================ */
+
+:root {
+  --ct-green: #2d7a3a;
+  --ct-green-light: #3a9e4a;
+  --ct-green-dark: #1e5427;
+  --ct-green-bg: #f0f8f1;
+  --ct-clay: #c4622d;
+  --ct-grass: #4a8c3f;
+  --ct-hard: #3b6fa0;
+  --ct-carpet: #7a5c8f;
+  --ct-gold: #d4a843;
+  --ct-dark: #1a2332;
+  --ct-gray: #6c757d;
+  --ct-light: #f8f9fa;
+}
+
+/* --- Navbar --- */
+.ct-navbar {
+  background: var(--ct-dark);
+  border-bottom: 3px solid var(--ct-green);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ct-brand {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+}
+
+.ct-brand i {
+  color: var(--ct-green-light);
+}
+
+.ct-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.ct-navbar .nav-link:hover,
+.ct-navbar .nav-link.active {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ct-search {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  border-radius: 8px 0 0 8px !important;
+  min-width: 240px;
+}
+
+.ct-search::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.ct-search:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: var(--ct-green-light) !important;
+  box-shadow: none !important;
+}
+
+.ct-btn-search {
+  background: var(--ct-green) !important;
+  color: #fff !important;
+  border: 1px solid var(--ct-green) !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* --- Main content --- */
+.ct-main {
+  min-height: calc(100vh - 180px);
+  background: var(--ct-light);
+}
+
+/* --- Cards --- */
+.ct-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s;
+}
+
+.ct-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.ct-card-header {
+  background: transparent;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+}
+
+/* --- Map --- */
+#map {
+  height: 420px;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.ct-map-popup h6 {
+  margin-bottom: 4px;
+  color: var(--ct-green-dark);
+}
+
+.ct-map-popup .badge {
+  font-size: 0.7rem;
+}
+
+/* --- Surface badges --- */
+.ct-surface {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.ct-surface-hard { background: var(--ct-hard); }
+.ct-surface-clay { background: var(--ct-clay); }
+.ct-surface-grass { background: var(--ct-grass); }
+.ct-surface-carpet { background: var(--ct-carpet); }
+
+/* --- Status badges --- */
+.ct-status {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ct-status-confirmed { background: #d4edda; color: #155724; }
+.ct-status-predicted_likely { background: #cce5ff; color: #004085; }
+.ct-status-predicted_possible { background: #fff3cd; color: #856404; }
+.ct-status-predicted_unlikely { background: #f8d7da; color: #721c24; }
+.ct-status-entered { background: #d4edda; color: #155724; }
+.ct-status-competing { background: #d4edda; color: #155724; }
+.ct-status-withdrawn { background: #f8d7da; color: #721c24; }
+.ct-status-upcoming { background: #e2e3e5; color: #383d41; }
+.ct-status-in_progress { background: #cce5ff; color: #004085; }
+.ct-status-completed { background: #d4edda; color: #155724; }
+.ct-status-entry_list { background: #fff3cd; color: #856404; }
+
+/* --- Category badges --- */
+.ct-category {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ct-category-grand-slam { background: var(--ct-gold); color: #fff; }
+.ct-category-1000 { background: var(--ct-green); color: #fff; }
+.ct-category-500 { background: #6c757d; color: #fff; }
+.ct-category-250 { background: #adb5bd; color: #333; }
+
+/* --- Stat cards --- */
+.ct-stat-card {
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.ct-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ct-green);
+  line-height: 1;
+}
+
+.ct-stat-label {
+  font-size: 0.8rem;
+  color: var(--ct-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* --- Player card --- */
+.ct-player-card {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.15s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ct-player-card:hover {
+  background: var(--ct-green-bg);
+  color: inherit;
+}
+
+.ct-player-rank {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ct-gray);
+  min-width: 40px;
+  text-align: center;
+}
+
+.ct-player-info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.ct-player-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.ct-player-meta {
+  font-size: 0.8rem;
+  color: var(--ct-gray);
+}
+
+.ct-player-points {
+  font-weight: 600;
+  color: var(--ct-green-dark);
+  font-size: 0.9rem;
+}
+
+/* --- Tour filter tabs --- */
+.ct-tour-tabs .nav-link {
+  border: none;
+  font-weight: 600;
+  color: var(--ct-gray);
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+}
+
+.ct-tour-tabs .nav-link.active {
+  color: var(--ct-green);
+  border-bottom-color: var(--ct-green);
+  background: transparent;
+}
+
+/* --- Timeline --- */
+.ct-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.ct-timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dee2e6;
+}
+
+.ct-timeline-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.ct-timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #dee2e6;
+}
+
+.ct-timeline-dot-confirmed { background: var(--ct-green); box-shadow: 0 0 0 2px var(--ct-green); }
+.ct-timeline-dot-predicted_likely { background: var(--ct-hard); box-shadow: 0 0 0 2px var(--ct-hard); }
+.ct-timeline-dot-predicted_possible { background: var(--ct-gold); box-shadow: 0 0 0 2px var(--ct-gold); }
+.ct-timeline-dot-historical_only { background: var(--ct-gray); box-shadow: 0 0 0 2px var(--ct-gray); }
+
+/* --- Profile header --- */
+.ct-profile-header {
+  background: linear-gradient(135deg, var(--ct-dark) 0%, #2c3e50 100%);
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+.ct-profile-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--ct-green);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ct-profile-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.ct-profile-meta {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* --- Tournament header --- */
+.ct-tournament-header {
+  background: linear-gradient(135deg, var(--ct-dark) 0%, #2c3e50 100%);
+  color: #fff;
+  padding: 2rem 0;
+}
+
+/* --- Probability bar --- */
+.ct-prob-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: #e9ecef;
+  overflow: hidden;
+}
+
+.ct-prob-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.ct-prob-high { background: var(--ct-green); }
+.ct-prob-medium { background: var(--ct-gold); }
+.ct-prob-low { background: var(--ct-clay); }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .ct-search { min-width: 160px; }
+  #map { height: 300px; }
+  .ct-profile-name { font-size: 1.5rem; }
+}
+
+/* --- Footer --- */
+.ct-footer {
+  background: var(--ct-dark);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+.ct-footer-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.ct-footer-tagline {
+  font-size: 0.85rem;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.ct-footer-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.ct-footer-link:hover {
+  color: #fff;
+}
+
+/* --- Entry list table --- */
+.ct-field-table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--ct-gray);
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.ct-field-table td {
+  vertical-align: middle;
+}
+
+/* --- Empty state --- */
+.ct-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--ct-gray);
+}
+
+.ct-empty i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  opacity: 0.4;
+}

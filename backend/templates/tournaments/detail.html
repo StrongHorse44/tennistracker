@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}{{ tournament.name }} — CourtTracker{% endblock %}
+
+{% block content %}
+<!-- Tournament Header -->
+<div class="ct-tournament-header">
+  <div class="container">
+    <h1 style="font-weight: 700; font-size: 2rem; margin-bottom: 6px">{{ tournament.name }}</h1>
+    <div style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 12px">
+      <i class="bi bi-geo-alt"></i> {{ tournament.city }}, {{ tournament.country_name or tournament.country }}
+      {% if tournament.venue_name %}&middot; {{ tournament.venue_name }}{% endif %}
+    </div>
+    <div class="d-flex gap-2 align-items-center">
+      <span class="ct-surface ct-surface-{{ tournament.surface|lower }}">{{ tournament.surface }}</span>
+      {% set cat_class = 'grand-slam' if 'Grand Slam' in tournament.category else '1000' if '1000' in tournament.category else '500' if '500' in tournament.category else '250' %}
+      <span class="ct-category ct-category-{{ cat_class }}">{{ tournament.category }}</span>
+      {% if tournament.indoor_outdoor %}<span class="badge bg-secondary">{{ tournament.indoor_outdoor }}</span>{% endif %}
+      {% if tournament.is_mandatory %}<span class="badge bg-warning text-dark">Mandatory</span>{% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="container py-4">
+  <div class="row g-4">
+    <!-- Tournament Info -->
+    <div class="col-lg-4">
+      <div class="ct-card card mb-4">
+        <div class="ct-card-header card-header">Tournament Details</div>
+        <div class="card-body">
+          <table class="table table-sm mb-0">
+            <tr><td class="text-muted">Tour</td><td>{{ tournament.tour }}</td></tr>
+            <tr><td class="text-muted">Category</td><td>{{ tournament.category }}</td></tr>
+            <tr><td class="text-muted">Surface</td><td>{{ tournament.surface }}</td></tr>
+            {% if tournament.draw_size %}
+            <tr><td class="text-muted">Draw Size</td><td>{{ tournament.draw_size }}</td></tr>
+            {% endif %}
+            {% if tournament.prize_money_usd %}
+            <tr><td class="text-muted">Prize Money</td><td>${{ "{:,}".format(tournament.prize_money_usd) }}</td></tr>
+            {% endif %}
+            {% if tournament.winner_points %}
+            <tr><td class="text-muted">Winner Points</td><td>{{ tournament.winner_points }}</td></tr>
+            {% endif %}
+            {% if tournament.finalist_points %}
+            <tr><td class="text-muted">Finalist Points</td><td>{{ tournament.finalist_points }}</td></tr>
+            {% endif %}
+            {% if tournament.semifinalist_points %}
+            <tr><td class="text-muted">Semifinalist</td><td>{{ tournament.semifinalist_points }}</td></tr>
+            {% endif %}
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editions -->
+    <div class="col-lg-8">
+      <div class="ct-card card">
+        <div class="ct-card-header card-header">
+          <i class="bi bi-collection"></i> Editions
+        </div>
+        <div class="card-body p-0">
+          {% if editions %}
+            {% for edition in editions %}
+            <a href="{{ url_for('views.tournament_edition', slug=tournament.slug, year=edition.year) }}" class="ct-player-card">
+              <div class="ct-player-rank" style="font-size: 1.2rem; min-width: 60px">{{ edition.year }}</div>
+              <div class="ct-player-info">
+                <div class="ct-player-name">{{ tournament.name }} {{ edition.year }}</div>
+                <div class="ct-player-meta">
+                  {{ edition.start_date.strftime('%b %d') }}–{{ edition.end_date.strftime('%b %d, %Y') }}
+                  {% if edition.draw_size %}&middot; Draw: {{ edition.draw_size }}{% endif %}
+                  {% if edition.prize_money_usd %}&middot; ${{ "{:,}".format(edition.prize_money_usd) }}{% endif %}
+                </div>
+              </div>
+              <span class="ct-status ct-status-{{ edition.status }}">{{ edition.status|replace('_', ' ')|title }}</span>
+            </a>
+            {% endfor %}
+          {% else %}
+            <div class="ct-empty">
+              <i class="bi bi-collection"></i>
+              No editions found
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

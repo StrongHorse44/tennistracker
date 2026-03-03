@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Search: {{ q }} — CourtTracker{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <h4 class="mb-3"><i class="bi bi-search"></i> Search Results{% if q %} for "{{ q }}"{% endif %}</h4>
+
+  {% if error %}
+  <div class="alert alert-warning">{{ error }}</div>
+  {% else %}
+
+  {% if not players and not tournaments %}
+  <div class="ct-empty">
+    <i class="bi bi-search"></i>
+    No results found for "{{ q }}"
+  </div>
+  {% endif %}
+
+  {% if players %}
+  <div class="ct-card card mb-4">
+    <div class="ct-card-header card-header">
+      <i class="bi bi-people"></i> Players ({{ players|length }})
+    </div>
+    <div class="card-body p-0">
+      {% for player in players %}
+      <a href="{{ url_for('views.player_detail', slug=player.slug) }}" class="ct-player-card">
+        <div class="ct-player-rank">{{ player.current_singles_rank or '-' }}</div>
+        <div class="ct-player-info">
+          <div class="ct-player-name">{{ player.full_name }}</div>
+          <div class="ct-player-meta">{{ player.nationality_name or player.nationality }} &middot; {{ player.tour }}</div>
+        </div>
+        {% if player.current_singles_points %}
+        <div class="ct-player-points">{{ "{:,}".format(player.current_singles_points) }} pts</div>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if tournaments %}
+  <div class="ct-card card">
+    <div class="ct-card-header card-header">
+      <i class="bi bi-trophy"></i> Tournaments ({{ tournaments|length }})
+    </div>
+    <div class="card-body p-0">
+      {% for tournament in tournaments %}
+      <a href="{{ url_for('views.tournament_detail', slug=tournament.slug) }}" class="ct-player-card">
+        <div class="ct-player-info">
+          <div class="ct-player-name">{{ tournament.name }}</div>
+          <div class="ct-player-meta">
+            {{ tournament.city }}, {{ tournament.country_name or tournament.country }}
+            &middot; {{ tournament.category }}
+          </div>
+        </div>
+        <span class="ct-surface ct-surface-{{ tournament.surface|lower }}">{{ tournament.surface }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% endif %}
+</div>
+{% endblock %}
